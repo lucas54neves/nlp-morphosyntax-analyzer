@@ -1,5 +1,4 @@
 import sys
-import glob
 import spacy
 
 nlp = spacy.load('pt_core_news_md')
@@ -7,7 +6,7 @@ nlp = spacy.load('pt_core_news_md')
 def filter_by_open_class_words(text):
     doc = nlp(text)
 
-    formatted_text = [token.text for token in doc if (token.pos_ == 'NOUN' or token.pos_ == 'VERB' or token.pos_ == 'ADJ' or token.pos_ == 'ADV' or token.pos_ == 'PROPN')]
+    formatted_text = [token.text for token in doc if (token.pos_ == 'NOUN' or token.pos_ == 'PROPN' or token.pos_ == 'VERB' or token.pos_ == 'ADJ' or token.pos_ == 'ADV' or token.pos == 'NUM')]
 
     return ' '.join(formatted_text)
 
